@@ -1,11 +1,15 @@
 📦 React Props Practice
+
 This repository is a hands-on practice project to understand how props work in React, how data flows between components, and best practices used in real-world (industry-level) React applications.
 
 🚀 What Are Props in React?
+
 Props (short for “properties”) are a way to pass data from a parent component to a child component.
 
 Props are read-only
+
 They follow one-way data flow (parent ➜ child)
+
 Props make components reusable and dynamic
 
 🧠 Basic Concept
@@ -24,7 +28,9 @@ function Card(props) {
 
 
 👉 The parent controls the data, the child only consumes it.
+
 📊 Props With Arrays & map()
+
 In real projects, data usually comes as arrays (API / database).
 
 Example:
@@ -38,8 +44,11 @@ Example:
 ))}
 
 Why key is important?
+
 Helps React track elements
+
 Improves performance
+
 Prevents rendering bugs
 
 ✔ Always use a unique and stable id
@@ -47,7 +56,6 @@ Prevents rendering bugs
 
 🧩 Props Destructuring (Industry Standard)
 ❌ Not Recommended
-
 function Card(props) {
   return <h2>{props.company}</h2>
 }
@@ -69,14 +77,18 @@ function Card({ company, salary, logo }) {
 ✔ Easier maintenance
 
 🔒 Props Are Immutable (Important Rule)
+
 ❌ Never modify props
 
 props.salary = 200   // ❌ wrong
 
 
 ✅ Correct approach:
+
 Use state in parent
+
 Pass updated value as prop
+
 🏗️ Industrial-Level Best Practices
 1️⃣ Keep Components Small
 
@@ -88,15 +100,20 @@ Card
  └── Salary
 
 2️⃣ Clear & Meaningful Prop Names
+
 ❌
+
 <Card a={x} b={y} />
 
+
 ✅
+
 <Card company={name} salary={pay} />
 
 3️⃣ Validate Props (Recommended)
 
 Using PropTypes (or TypeScript in real projects):
+
 import PropTypes from "prop-types"
 
 Card.propTypes = {
@@ -108,22 +125,29 @@ Card.propTypes = {
 Prevents runtime bugs.
 
 4️⃣ Avoid Over-Passing Props (Prop Drilling)
+
 ❌
 
 App → Section → Card → Button
 
+
 ✅ Solutions:
+
 Context API
 
 State management (Redux, Zustand)
+
 Component composition
 
 5️⃣ Do NOT Put Logic Inside JSX
+
 ❌
 
 <Card salary={salary > 100 ? salary : 100} />
 
+
 ✅
+
 const finalSalary = salary > 100 ? salary : 100
 <Card salary={finalSalary} />
 
