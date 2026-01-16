@@ -18,7 +18,9 @@ Parent Component
 
 Child Component
 function Card(props) {
+
   return (
+
     <div>
       <h2>{props.company}</h2>
       <p>${props.salary}/hr</p>
@@ -35,7 +37,9 @@ In real projects, data usually comes as arrays (API / database).
 
 Example:
 {jobOpenings.map(job => (
+
   <Card
+
     key={job.id}
     company={job.companyName}
     salary={job.salaryPerHour}
@@ -62,7 +66,9 @@ function Card(props) {
 
 ✅ Recommended
 function Card({ company, salary, logo }) {
+
   return (
+
     <div>
       <img src={logo} alt={company} />
       <h2>{company}</h2>
@@ -100,15 +106,15 @@ Card
  └── Salary
 
 2️⃣ Clear & Meaningful Prop Names
-
 ❌
 
-<Card a={x} b={y} />
-
-
+<
+Card a={x} b={y} />
 ✅
 
-<Card company={name} salary={pay} />
+
+<
+Card company={name} salary={pay} />
 
 3️⃣ Validate Props (Recommended)
 
@@ -117,6 +123,7 @@ Using PropTypes (or TypeScript in real projects):
 import PropTypes from "prop-types"
 
 Card.propTypes = {
+
   company: PropTypes.string.isRequired,
   salary: PropTypes.number.isRequired,
 }
@@ -143,7 +150,8 @@ Component composition
 
 ❌
 
-<Card salary={salary > 100 ? salary : 100} />
+<
+Card salary={salary > 100 ? salary : 100} />
 
 
 ✅
